@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+
+void display(int arr[], int p); //function to display a given array
+void buSort(int arr[],int q); //Function for bubble sort
+void swapp(int *a, int *b); //Swap Function
+
+int main()
+{
+	
+	cout<< "Welcome to the implementation of 'Bubble Sort' algorithm"<<endl;
+        int n;
+        cout<< "Please enter number of elements in array"<<endl;
+        cin>>n;
+        int arr1[n];
+        cout<< "Enter the elements"<<endl;
+        for(int i=0; i<n; i++)
+            cin>>arr1[i];
+
+        cout<< "Array before Sorting: ";
+        display(arr1, n);
+        buSort(arr1, n);
+        cout<< "Array after Sorting: ";
+        display(arr1, n);
+}
+
+void buSort(int arr[],int q)
+{
+    for(int i=0; i<q-1; i++)
+        for(int j=0; j<q-i-1; j++)
+            if(arr[j] > arr[j+1])
+               swapp(&arr[j], &arr[j+1]);
+}
+
+
+
+void display(int arr[], int p)
+{
+    for(int i=0; i<p; i++)
+        cout<< arr[i]<< " ";
+    cout<<endl;
+}
+
+void swapp(int *a, int *b)
+{
+
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+
+}
